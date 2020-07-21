@@ -1,0 +1,31 @@
+[package]
+authors = ["ryan kurte <ryankurte@gmail.com>"]
+edition = "2018"
+license = "MIT"
+name = "sys-build"
+repository = "https://github.com/ryankurte/rust-sys-build"
+version = "0.1.0"
+
+[dependencies]
+bindgen = "*"
+cargo_metadata = "*"
+cc = "*"
+log = "*"
+pkg-config = "*"
+vcpkg = "*"
+cfg-if = "*"
+
+[dependencies.serde]
+features = ["derive"]
+version = "*"
+
+
+[features]
+source_dir = []         # Build from included source
+source_git = []         # Build from provided git repo
+
+use_pkgconfig = []      # Locate library using pkg-config
+use_vcpkg = []          # Locate library using vcpkg
+
+build_bindings = [] # Re-generate bindings for the target arch
+static = []         # Build / link static versions of the library
