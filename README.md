@@ -12,12 +12,16 @@ To simplify the construction of `*-sys` crates that adequately support multiple 
 
 ### Requirements
 
-- Support cross-compilation (and per-target configuration) to pass to underlying build systems
-- Support both linking against system libraries (critical for distro packaging) and compiling against static or dynamic libraries
-- Support cross-platform use (packages should both _work_ and be _cross compilable_ using at least linux / windows / macos
-- Provide cargo-centric mechanisms for configuration (no more exporting environmental variables as the _default_ behaviour) 
+- Minimise _surprise_ by providing working defaults for common configurations
+  - Attempt to use non-interactive discovery mechanisms, provide useful errors, support overrides as required
+- Support per-target configuration to pass to underlying build systems
+  - ie. existing `autotools` may expect a variety of configuration options per-target
+- Support both linking against system libraries and compiling and linking against static or dynamic libraries
+- Support cross-platform use 
+  - packages should both _work_ and be _cross compilable_ using at least linux / windows / macos
+- Provide cargo-centric mechanisms for configuration (no environmental variables required _by default)
 - Support fetching pre-compiled libraries / headers for platforms where this is requried / useful
-- Minimise _surprise_ by providing working defaults for common configurations, supporting overrides as required
+- Support testing of `*-sys` crates across supported hosts and targets
 
 
 ## Status
